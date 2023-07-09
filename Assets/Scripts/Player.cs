@@ -5,9 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float speed;
-    public float jumpForce;
-    public Vector2 moveVector;
+    
     
     public Rigidbody2D rb;
     // Start is called before the first frame update
@@ -15,7 +13,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-
+        checkRadius = GroundCheck.GetComponent<CircleCollider2D>().radius;
 
     }
     
@@ -26,21 +24,27 @@ public class Player : MonoBehaviour
         Walk();
         Jump();
         CheckingGround();
+        Reflect();
         //transform.Translate(transform.right * speed * Time.deltaTime);
 
-    }
+    }  
+
+    public float speed;
+    public Vector2 moveVector;
 
     void Walk()
     {
         moveVector.x = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
-    }
+    }    
+    
+    public float jumpForce;
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (onGround && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce((transform.up * jumpForce), ForceMode2D.Impulse);
-            
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
         }
     }
 
@@ -48,6 +52,17 @@ public class Player : MonoBehaviour
     public Transform GroundCheck;
     public float checkRadius = 0.15f;
     public LayerMask Ground;
+
+    public bool faceRight;
+
+    void Reflect()
+    {
+        if ((moveVector.x > 0) && faceRight || (moveVector.x < 0) && !faceRight)
+        {
+            transform.localScale *= new Vector2(-1, 1);
+            faceRight = !faceRight;
+        }
+    }
 
     void CheckingGround()
     {
