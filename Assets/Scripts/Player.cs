@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
 
     public bool onGround;
     public Transform GroundCheck;
-    public float checkRadius = 0.15f;
+    public float checkRadius;
     public LayerMask Ground;
 
     public bool faceRight;
