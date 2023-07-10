@@ -8,11 +8,12 @@ public class Player : MonoBehaviour
     
     
     public Rigidbody2D rb;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        anim = GetComponent<Animator>();
         checkRadius = GroundCheck.GetComponent<CircleCollider2D>().radius;
 
     }
@@ -21,7 +22,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         
-        Walk();
+        Run();
         Jump();
         CheckingGround();
         Reflect();
@@ -32,9 +33,10 @@ public class Player : MonoBehaviour
     public float speed;
     public Vector2 moveVector;
 
-    void Walk()
+    void Run()
     {
         moveVector.x = Input.GetAxis("Horizontal");
+        anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
     }    
     
