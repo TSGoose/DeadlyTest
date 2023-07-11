@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         if (onGround && Input.GetKeyDown(KeyCode.Space))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-
+            
         }
     }
 
@@ -69,6 +69,7 @@ public class Player : MonoBehaviour
     void CheckingGround()
     {
         onGround = Physics2D.OverlapCircle(GroundCheck.position, checkRadius, Ground);
+        anim.SetBool("onGround", onGround);
     }
 
 
