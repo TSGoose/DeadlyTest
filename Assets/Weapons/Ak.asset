@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c0d9ba8fac13645b6acde5f7bf0b42, type: 3}
+  m_Name: Ak
+  m_EditorClassIdentifier: 
+  Damage: 5
+  Speed: 15
+  ShotTime: 0.2
+  BulletsCountMagazine: 30
+  BulletsCountAll: 180
+  ReloadTime: 4
+  Name: Ak
+  Description: Ak
+  Type: 0
