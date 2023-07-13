@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape)) ExitToMenu();
         Run();
         Jump();
         CheckingGround();
@@ -32,6 +32,11 @@ public class Player : MonoBehaviour
 
     public float speed;
     public Vector2 moveVector;
+
+    void ExitToMenu()
+    {
+        Scenes.OpenMenu();
+    }
 
     void Run()
     {
