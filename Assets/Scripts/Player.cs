@@ -26,12 +26,14 @@ public class Player : MonoBehaviour
         Jump();
         CheckingGround();
         Reflect();
+        if (hp <= 0) ExitToMenu();
         //transform.Translate(transform.right * speed * Time.deltaTime);
 
     }  
 
     public float speed;
     public Vector2 moveVector;
+    public int hp = 10;
 
     void ExitToMenu()
     {
@@ -77,4 +79,9 @@ public class Player : MonoBehaviour
         anim.SetBool("onGround", onGround);
     }
 
+
+    public void TakeDamage(int damage)
+    {
+        hp -= damage;
+    }
 }

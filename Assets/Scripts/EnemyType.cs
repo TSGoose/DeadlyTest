@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "DeadlyTestObjects/Weapon")]
-public class Weapon : ScriptableObject
+[CreateAssetMenu(menuName = "DeadlyTestObjects/EnemyType")]
+
+public class EnemyType : ScriptableObject
 {
+    public int hp;
     public int Damage;
     public float Speed;
     public float ShotTime;
@@ -13,7 +15,6 @@ public class Weapon : ScriptableObject
     public float ReloadTime;
     public string Name;
     public string Description;
-    public WeaponTypes Type;
-
+    
 
 }

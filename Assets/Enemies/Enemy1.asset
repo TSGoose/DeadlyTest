@@ -9,16 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c0d9ba8fac13645b6acde5f7bf0b42, type: 3}
-  m_Name: Ak
+  m_Script: {fileID: 11500000, guid: ec436aeacb1d6e949b6611b8a7d5eccc, type: 3}
+  m_Name: Enemy1
   m_EditorClassIdentifier: 
-  Damage: 1
-  Speed: 15
-  ShotTime: 0.2
-  AffectedArea: 0
-  BulletsCountMagazine: 30
-  BulletsCountAll: 180
-  ReloadTime: 4
-  Name: Ak
-  Description: Ak
-  Type: 0
+  hp: 5
+  Damage: 2
+  Speed: 3
+  ShotTime: 0.5
+  AffectedArea: 0.5
+  BulletsCountMagazine: 0
+  BulletsCountAll: 0
+  ReloadTime: 0
+  Name: Pikeman
+  Description: desc
