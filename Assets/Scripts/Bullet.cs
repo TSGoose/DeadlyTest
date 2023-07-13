@@ -8,7 +8,6 @@ public class Bullet : MonoBehaviour
 {
 
     public Weapon weapon;
-    private RaycastHit2D hitInfo;
     public float checkRadius = 0.5f;
     public LayerMask Enemy;
 
