@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         checkRadius = GroundCheck.GetComponent<CircleCollider2D>().radius;
+        speed = BaseSpeed;
 
     }
     
@@ -26,12 +27,14 @@ public class Player : MonoBehaviour
         Jump();
         CheckingGround();
         Reflect();
+        Shift();
         if (hp <= 0) ExitToMenu();
         //transform.Translate(transform.right * speed * Time.deltaTime);
 
     }  
 
-    public float speed;
+    public float BaseSpeed;
+    private float speed;
     public Vector2 moveVector;
     public int hp = 10;
 
@@ -42,7 +45,7 @@ public class Player : MonoBehaviour
 
     void Run()
     {
-        moveVector.x = Input.GetAxis("Horizontal");
+        moveVector.x = Input.GetAxisRaw("Horizontal");
         anim.SetFloat("moveX", Mathf.Abs(moveVector.x));
         rb.velocity = new Vector2(moveVector.x * speed, rb.velocity.y);
     }    
@@ -55,6 +58,28 @@ public class Player : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             
         }
+    }
+
+    public Collider2D poseStand;
+    public Collider2D poseShift;
+
+    void Shift()
+    {
+        if (onGround && Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = BaseSpeed / 2;
+            poseStand.enabled = false;
+            poseShift.enabled = true;
+            anim.SetBool("onShift", true);
+        }
+        else
+        {
+            speed = BaseSpeed;
+            poseStand.enabled = true;
+            poseShift.enabled = false;
+            anim.SetBool("onShift", false);
+        }
+
     }
 
     public bool onGround;

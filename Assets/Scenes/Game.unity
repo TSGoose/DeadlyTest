@@ -478,12 +478,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5.2791224, y: 3.4061303}
+    - - {x: -5.346198, y: 5.451953}
       - {x: -5.2964563, y: -0.6606178}
       - {x: -1.2342083, y: -0.7371925}
       - {x: 1.387463, y: -0.6718606}
-      - {x: 7.195665, y: -0.7371924}
-      - {x: 7.3075495, y: 3.3256583}
+      - {x: 7.27221, y: -0.77546525}
+      - {x: 7.173397, y: 5.2037907}
   m_UseDelaunayMesh: 0
 --- !u!4 &348601817
 Transform:
@@ -638,7 +638,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.8
+  orthographic size: 2.39
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -662,7 +662,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.327485, y: -0.53457445, z: -10}
+  m_LocalPosition: {x: -2.3239398, y: 0.05549115, z: -10}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -717,6 +717,7 @@ GameObject:
   - component: {fileID: 601172786}
   - component: {fileID: 601172785}
   - component: {fileID: 601172787}
+  - component: {fileID: 601172788}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -835,10 +836,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 601172783}
   anim: {fileID: 0}
-  speed: 3.2
+  BaseSpeed: 3
   moveVector: {x: 0, y: 0}
   hp: 10
   jumpForce: 5.94
+  poseStand: {fileID: 601172786}
+  poseShift: {fileID: 601172788}
   onGround: 0
   GroundCheck: {fileID: 697862646}
   checkRadius: 0.16
@@ -902,6 +905,41 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &601172788
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601172780}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07, y: -0.06}
+  m_Size: {x: 0.46, y: 0.91}
+  m_Direction: 0
 --- !u!1 &640604951
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2498,7 @@ MonoBehaviour:
   m_Follow: {fileID: 601172782}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 1.8
+    OrthographicSize: 2.39
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -2485,7 +2523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498336287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.98, y: -0.7749999, z: -10}
+  m_LocalPosition: {x: -3.98, y: -0.7159999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
