@@ -2,24 +2,33 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Scenes : MonoBehaviour
+
+namespace DeadlyTest.Architecture
 {
-    private void Start()
+    public class Scenes : MonoBehaviour
     {
-        //SceneManager.LoadScene(0);
-    }
-    public static void OpenGame()
-    {
-        SceneManager.LoadScene(0);
-    }
+        private void Start()
+        {
+            //SceneManager.LoadScene(0);
+        }
+        public static void OpenGame()
+        {
+            SceneManager.LoadScene(0);
+        }
 
-    public static void OpenMenu()
-    {
-        SceneManager.LoadScene(1);
-    }
+        public static void OpenMenu()
+        {
+            SceneManager.LoadScene(1);
+        }
 
-    public static void OpenSettings()
-    {
-        SceneManager.LoadScene(2);
+        public static void OpenSettings()
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        public static void OpenDeadScreen()
+        {
+            SceneManager.LoadScene(3);
+        }
     }
 }

@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Settings : MonoBehaviour
+namespace DeadlyTest.Architecture
 {
-    public void BackButtonClick()
+    public class Settings : MonoBehaviour
     {
-        Scenes.OpenMenu();
+        public void BackButtonClick()
+        {
+            Scenes.OpenMenu();
+        }
     }
 }

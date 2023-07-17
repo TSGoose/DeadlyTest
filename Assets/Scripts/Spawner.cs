@@ -2,40 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+namespace DeadlyTest.Architecture
 {
-    public float timeSleep;
-    public float timePause, pause;
-    public GameObject EnemyPrefab;
-    public Animator anim;
-
-    void Start()
+    public class Spawner : MonoBehaviour
     {
-        anim = GetComponent<Animator>();
-        pause = timePause;
-    }
+        public float timeSleep;
+        public float timePause, pause;
+        public GameObject EnemyPrefab;
+        public Animator anim;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (timeSleep <= 0) ShowSpawner();
-        else timeSleep -= Time.deltaTime;
-        spawnEnemies();
-    }
-
-    void ShowSpawner()
-    {
-        anim.Play("spawn");
-    }
-
-    void spawnEnemies()
-    {
-        if (pause <= 0)
+        void Start()
         {
-            Instantiate(EnemyPrefab, transform.position, transform.rotation);
+            anim = GetComponent<Animator>();
             pause = timePause;
         }
-        else
-            pause -= Time.deltaTime;
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (timeSleep <= 0) ShowSpawner();
+            else timeSleep -= Time.deltaTime;
+            spawnEnemies();
+        }
+
+        void ShowSpawner()
+        {
+            anim.Play("spawn");
+        }
+
+        void spawnEnemies()
+        {
+            if (pause <= 0)
+            {
+                Instantiate(EnemyPrefab, transform.position, transform.rotation);
+                pause = timePause;
+            }
+            else
+                pause -= Time.deltaTime;
+        }
     }
 }

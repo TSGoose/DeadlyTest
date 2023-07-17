@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   Damage: 2
-  Speed: 3
+  Speed: 2
   ShotTime: 0.5
   AffectedArea: 0.5
   BulletsCountMagazine: 0

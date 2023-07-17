@@ -4,24 +4,28 @@ using Unity.Burst.Intrinsics;
 using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+namespace DeadlyTest.Architecture
 {
-
-    public Weapon weapon;
-    public float checkRadius = 0.5f;
-    public LayerMask Enemy;
-
-    void OnTriggerEnter2D(Collider2D collision)
+    public class Bullet : MonoBehaviour
     {
 
-        //hitInfo = Physics2D.Raycast(transform.position, transform.up, checkRadius, Enemy);
-        //collision.gameObject.GetComponent<Player>().TakeDamage(weapon.Damage);
-        if (collision != null)
+        public Weapon weapon;
+        public float checkRadius = 0.5f;
+        public LayerMask Enemy;
+
+        void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.CompareTag("Enemy"))
-                collision.GetComponent<Enemy>().TakeDamage(weapon.Damage);
+            
+            //hitInfo = Physics2D.Raycast(transform.position, transform.up, checkRadius, Enemy);
+            //collision.gameObject.GetComponent<Player>().TakeDamage(weapon.Damage);
+            if (collision != null)
+            {
+                Destroy(gameObject);
+                if (collision.CompareTag("Enemy"))
+                    collision.GetComponent<Enemy>().TakeDamage(weapon.Damage);
+            }
+           
         }
-        Destroy(gameObject);
     }
 }
 
