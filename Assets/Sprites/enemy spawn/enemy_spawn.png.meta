@@ -248,6 +248,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: enemy_spawn_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42874ab2b4a25cf42992864abda03cab
+      internalID: -1717981866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -265,6 +286,7 @@ TextureImporter:
       enemy_spawn_3: 794244973
       enemy_spawn_4: -1875129299
       enemy_spawn_5: 1228839441
+      enemy_spawn_6: -1717981866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
