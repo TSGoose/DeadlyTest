@@ -67,7 +67,7 @@ namespace DeadlyTest.Architecture {
         }
 
         private float shotTime;
-        public bool reload;
+        public bool reload = false;
         RaycastHit2D inAffectedArea;
         public Transform Arm;
         public float checkRadius = 0.5f;
@@ -77,9 +77,11 @@ namespace DeadlyTest.Architecture {
         {
             inAffectedArea = Physics2D.Raycast(Arm.position, -Arm.TransformDirection(Vector2.right), checkRadius, Player);
             //Debug.Log(Arm.up);
-            if (inAffectedArea.collider != null && !reload) 
+            if (inAffectedArea.collider != null && !reload)
             {
-                if (inAffectedArea.collider.CompareTag("Player")) {
+                anim.Play("enemy_1_fight");
+                if (inAffectedArea.collider.CompareTag("Player"))
+                {
                     reload = true;
                     inAffectedArea.collider.GetComponent<Player>().TakeDamage(enemyType.Damage);
                 }
