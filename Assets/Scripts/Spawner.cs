@@ -6,7 +6,7 @@ namespace DeadlyTest.Architecture
 {
     public class Spawner : MonoBehaviour
     {
-        public float timeSleep;
+        public float timeBeforeSpawn;
         public float timePause, pause;
         public GameObject EnemyPrefab;
         public Animator anim;
@@ -14,14 +14,14 @@ namespace DeadlyTest.Architecture
         void Start()
         {
             anim = GetComponent<Animator>();
-            pause = timePause;
+            pause = timePause + timeBeforeSpawn;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (timeSleep <= 0) ShowSpawner();
-            else timeSleep -= Time.deltaTime;
+            if (timeBeforeSpawn <= 0) ShowSpawner();
+            else timeBeforeSpawn -= Time.deltaTime;
             spawnEnemies();
         }
 
