@@ -19,6 +19,7 @@ namespace DeadlyTest.Architecture
             this.playerRepository.Initialize();
 
             this.playerInteractor = new PlayerInteractor(this.playerRepository);
+            this.playerInteractor.Initialize();
 
             player_score = this.playerRepository.Score;
             text_score.text = player_score.ToString();

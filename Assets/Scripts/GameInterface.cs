@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DeadlyTest.Architecture
 {
@@ -9,7 +10,7 @@ namespace DeadlyTest.Architecture
     {
         private PlayerRepository playerRepository;
         public PlayerInteractor playerInteractor;
-
+        public Text TextScore;
 
         public Player player;
         private Gun gun;
@@ -47,12 +48,13 @@ namespace DeadlyTest.Architecture
             positionX_right = right_hp.transform.localPosition.x;
             positionX_bullets = line_bullets.transform.localPosition.x;
             positionX_bullets_right = right_bullets.transform.localPosition.x;
-            player_score = this.playerRepository.Score;
         }
 
         void Update()
         {
+            this.playerRepository.Initialize();
             player_score = this.playerRepository.Score;
+            TextScore.text = player_score.ToString();
             hp = player.hp;
             bullets = gun.BulletsMagazine;
             SetHp();
